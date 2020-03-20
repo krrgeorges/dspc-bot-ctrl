@@ -25,7 +25,7 @@ class BotFunctions:
                         "switchto <exact window_title":"Finds window title and sets it as active window.","switchtoin <word in title>":"Finds window title containing input and sets it as active window",
                         "startssstream":"Starts a screenshot stream with delay of 3 secs","stopssstream":"Stops screenshot stream started with startssstream","sendkeys":"Types sentence in Controlled PC",
                         "sendhotkeys":"Types hot keys in Controlled PC. For combinations, use + as delimiter. For sequences, use spaces.","sendkeynames":"Sends valid key names."}
-
+    
     def __init__(self,update,context,tmp_ROOT,chat_id):
             self.update = update
             self.context = context
@@ -232,12 +232,12 @@ class BotFunctions:
                 self.send_key_names()
 
     def commands_list(self):
-            logger.info("Providing commands list")
+    		logger.info("Providing commands list")
+            icop = "You could search/google for keyboard shortcuts for sub-actions and use that to complete various tasks you want acheived. For example: To open a program, use command 'sendhotkeys win+s' to focus on windows search bar, use command 'sendkeys <program name>' to search for it and use command 'sendhotkeys enter' to press enter to open the program."
             cop = ""
             for command in self.cmds_list:
                 cop += "*"+command+"* - "
                 cop += self.cmds_list[command]
                 cop += "\n\n"
-
-
+            self.context.bot.send_message(chat_id=self.chat_id, text=icop,parse_mode=telegram.ParseMode.MARKDOWN)
             self.context.bot.send_message(chat_id=self.chat_id, text=cop,parse_mode=telegram.ParseMode.MARKDOWN)

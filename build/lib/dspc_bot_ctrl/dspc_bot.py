@@ -15,7 +15,7 @@ class DSPCBOT():
 
 
     def init_block(self):
-        version = "1.0.0"
+        version = "1.0.2"
         init_art = """       
                __                           __          __ 
           ____/ /________  __________      / /_  ____  / /_

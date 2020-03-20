@@ -98,6 +98,9 @@ class TelegramPoller(threading.Thread):
                 if "sendkeynames" in msg.split():
                     ran = True
                     bf.send_key_names()
+                
+
+
                 if ran == False and "identify_me" not in msg and "identity_me" not in msg:
                     context.bot.send_message(chat_id=self.chat_id,text="Command not recognized. Type 'commands' to see a list of valid commands.")
 
